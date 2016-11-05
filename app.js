@@ -1,19 +1,9 @@
 var arDrone = require('ar-drone');
 var client  = arDrone.createClient();
 
-client.takeoff(function(){
-    console.log("Taking Off");
+client.takeoff();
+client.stop();
+client.animate('flipLeft',1000);
+client.land(function(){
+    process.exit(1);
 });
-
-
-client
-    .after(5000, function() {
-        console.log("Rotating Clockwise");
-        this.clockwise(0.5);
-    })
-    .after(3000, function() {
-        this.stop();
-        this.land();
-        console.log("Drone landed");
-        process.exit(1);
-    });
