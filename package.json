@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Can termux run ardone scripts/?",
   "dependencies": {
-    "ardrone":"felixge/node-ar-drone"
+    "ardrone":"felixge/node-ar-drone",
+    "ardrone-autonomy": "eschnou/ardrone-autonomy"
   }
 }

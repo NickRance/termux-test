@@ -1,9 +1,17 @@
 var arDrone = require('ar-drone');
-var client  = arDrone.createClient();
+var mission  = autonomy.createMission();
 
-client.takeoff();
-client.stop();
-client.animate('flipLeft',1000);
-client.land(function(){
-    process.exit(1);
+mission.takeoff()
+      .zero()
+      .altitude(1)
+      .forward(2)
+      .hover(2)
+      .land(2);
+mission.run(function(err, result){
+    if(err) {
+      console.trace("Crap hit the fan!: %s", err.message);
+    } else {
+      console.log("Mission success!");
+      process.exit(0);
+    }
 });
