@@ -15,4 +15,5 @@ client
         this.stop();
         this.land();
         console.log("Drone landed");
+        process.exit(1);
     });
